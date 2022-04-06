@@ -19,12 +19,12 @@ class WallServiceTest {
         //act
       //  val result = WallService.add(post).id != 0
         val service = WallService()
-    //    val result = service.add(post).id
-        val result = service.add(post).id != 0
+        val result = service.add(post).id
+     //   val result = service.add(post).id != 0
 
         //assert
-     //   assertEquals(0, result)
-        assertEquals(true, result)
+        assertEquals(0, result)
+     //   assertEquals(true, result)
     }
 
     @Test
