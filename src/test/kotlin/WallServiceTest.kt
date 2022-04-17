@@ -1,165 +1,126 @@
-data class SizesPhoto(
-    val type: String,
-    val url: String,
-    val width: Int,
-    val height: Int
-)
+import org.junit.Test
 
-data class Image(
-    val height: Int,
-    val url: String,
-    val width: Int,
-    val withPadding: Int
-)
+import org.junit.Assert.*
 
-data class FirstFrame(
-    val height: Int,
-    val url: String,
-    val width: Int
-)
+class WallServiceTest {
 
-data class PhotoPreview(
-    val size: SizesPhoto
-)
+    @Test
+    fun addPost() {
+        //arrange
+        val post = Post(0,52,12,5,125866412, "Hello!", 0,0,
+            Comments(1, true, 2, true, true),
+            Copyright(45, "www.ya.ru", "ya", "web"),
+            Likes(4, true, true, true),
+            Reposts(4, true),
+            Views(65),
+            "post", 6, true, true, true, true, true, true, 0
+        )
 
-data class Graffiti(
-    val src: String,
-    val width: Int,
-    val height: Int
-)
+        //act
+        val service = WallService()
+        val result = service.add(post).id != 0
 
-data class AudioMessage(
-    val duration: Int,
-    val waveform: Array<Int>,
-    val linkOgg: String,
-    val linkMp3: String
-)
+        //assert
+        assertEquals(true, result)
+    }
 
+    @Test
+    fun updatePost_True() {
+        //arrange
+        val post1 = Post(0,52,12,5,125866412, "Hello!", 0,0,
+            Comments(1, true, 2, true, true),
+            Copyright(45, "www.ya.ru", "ya", "web"),
+            Likes(4, true, true, true),
+            Reposts(4, true),
+            Views(65),
+            "post", 6, true, true, true, true, true, true, 0
+        )
+        val post2 = Post(0,52,43,5,125866500, "It's may first post!", 1,0,
+            Comments(1, true, 2, true, true),
+            Copyright(45, "www.ya.ru", "ya", "web"),
+            Likes(4, true, true, true),
+            Reposts(4, true),
+            Views(65),
+            "post", 6, true, true, true, true, true, true, 0
+        )
+        val post3 = Post(0,52,15,5,125866900, "Hello!", 1,0,
+            Comments(1, true, 2, true, true),
+            Copyright(45, "www.ya.ru", "ya", "web"),
+            Likes(4, true, true, true),
+            Reposts(4, true),
+            Views(65),
+            "post", 6, true, true, true, true, true, true, 0
+        )
+        val post4 = Post(3,52,15,5,125866900, "Hello!", 1,0,
+            Comments(1, true, 2, true, true),
+            Copyright(45, "www.ya.ru", "ya", "web"),
+            Likes(4, true, true, true),
+            Reposts(4, true),
+            Views(65),
+            "post", 6, true, true, true, true, true, true, 0
+        )
+        val service = WallService()
 
-data class Preview(
-    val photo: PhotoPreview,
-    val graffiti: Graffiti,
-    val audioMessage: AudioMessage
-)
+        service.add(post1)
+        service.add(post2)
+        service.add(post3)
 
-data class Photo(
-    val id: Int,
-    val albumID: Int,
-    val OwnerId: Int,
-    val UserId: Int,
-    val text: String,
-    val data: Int,
-    val sizes: Array<SizesPhoto>,
-    val width: Int,
-    val height: Int
-)
+        val update = post4
 
-data class Video(
-    val id: Int,
-    val OwnerId: Int,
-    val title: String,
-    val description: String,
-    val duration: Int,
-    val image: Array<Image>,
-    val firstFrame: Array<FirstFrame>,
-    val data: Int,
-    val addingData: Int,
-    val views: Int,
-    val localViews: Int,
-    val comments: Int,
-    val player: String,
-    val platform: String,
-    val canAdd: Boolean,
-    val isPrivate: Int,
-    val accessKey: String,
-    val processing: Int,
-    val isFavorite: Boolean,
-    val canComment: Boolean,
-    val canEdit: Boolean,
-    val canLike: Boolean,
-    val canRepost: Boolean,
-    val canSubcribe: Boolean,
-    val canAddToFaves:Boolean,
-    val canAttachLink: Boolean,
-    val width: Int,
-    val height: Int,
-    val userId: Int,
-    val converting: Boolean,
-    val added: Boolean,
-    val isSubscribed: Boolean,
-    val repeat: Int,
-    val type: String,
-    val balance: Int,
-    val liveStatus: String,
-    val live: Int,
-    val ipcoming: Int,
-    val spectators: Int,
-    val likes: Likes,
-    val reposts: Reposts
-)
+        // act
+        val result = service.update(update)
 
-data class Audio(
-    val id: Int,
-    val OwnerId: Int,
-    val artist: String,
-    val title: String,
-    val duration: Int,
-    val url: String,
-    val lyricsId: Int,
-    val albumId: Int,
-    val genreId: Int,
-    val data: Int,
-    val noSearch: Boolean,
-    val isHq: Boolean
-)
+        //assert
+        assertEquals(true, result)
+    }
 
-data class Sticker(
-    val productId: Int,
-    val stickerId: Int,
-    val image: Array<Image>,
-    val imagesWithBackground: Array<Image>,
-    val animationUrl: String,
-    val isAllowed: Boolean
-)
+    @Test
+    fun updatePost_False() {
+        //arrange
+        val post1 = Post(0,52,12,5,125866412, "Hello!", 0,0,
+            Comments(1, true, 2, true, true),
+            Copyright(45, "www.ya.ru", "ya", "web"),
+            Likes(4, true, true, true),
+            Reposts(4, true),
+            Views(65),
+            "post", 6, true, true, true, true, true, true, 0
+        )
+        val post2 = Post(0,52,43,5,125866500, "It's may first post!", 1,0,
+            Comments(1, true, 2, true, true),
+            Copyright(45, "www.ya.ru", "ya", "web"),
+            Likes(4, true, true, true),
+            Reposts(4, true),
+            Views(65),
+            "post", 6, true, true, true, true, true, true, 0
+        )
+        val post3 = Post(0,52,15,5,125866900, "Hello!", 1,0,
+            Comments(1, true, 2, true, true),
+            Copyright(45, "www.ya.ru", "ya", "web"),
+            Likes(4, true, true, true),
+            Reposts(4, true),
+            Views(65),
+            "post", 6, true, true, true, true, true, true, 0
+        )
+        val post4 = Post(4,52,15,5,125866900, "Hello!", 1,0,
+            Comments(1, true, 2, true, true),
+            Copyright(45, "www.ya.ru", "ya", "web"),
+            Likes(4, true, true, true),
+            Reposts(4, true),
+            Views(65),
+            "post", 6, true, true, true, true, true, true, 0
+        )
+        val service = WallService()
 
-data class File(
-    val id: Int,
-    val ownerId: Int,
-    val title: String,
-    val size: Int,
-    val ext: String,
-    val url: String,
-    val data: Int,
-    val type: Int,
-    val preview: Preview
-)
+        service.add(post1)
+        service.add(post2)
+        service.add(post3)
 
+        val update = post4
 
-interface Attachment{
-    val type: String
+        // act
+        val result = service.update(update)
+
+        //assert
+        assertEquals(false, result)
+    }
 }
-
-data class AttachmentVideo(
-    override val type: String = "video",
-    val video: Video
-): Attachment
-
-data class AttachmentPhoto(
-    override val type: String = "photo",
-    val photo: Photo
-): Attachment
-
-data class AttachmentAudio(
-    override val type: String = "audio",
-    val audio: Audio
-): Attachment
-
-data class AttachmentFile(
-    override val type: String = "file",
-    val file: File
-): Attachment
-
-data class AttachmentSticker(
-    override val type: String = "sticker",
-    val sticker: Sticker
-): Attachment
