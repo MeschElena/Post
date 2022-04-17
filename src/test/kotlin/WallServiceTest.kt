@@ -13,13 +13,7 @@ class WallServiceTest {
             Likes(4, true, true, true),
             Reposts(4, true),
             Views(65),
-            "post",
-            null,
-            null,
-            Geo("city", "145.618.514", null),
-            6,
-            null,
-            true, true, true, true, true, true, 0
+            "post", 6, true, true, true, true, true, true, 0
         )
 
         //act
@@ -39,13 +33,7 @@ class WallServiceTest {
             Likes(4, true, true, true),
             Reposts(4, true),
             Views(65),
-            "post",
-            null,
-            null,
-            Geo("city", "145.618.514", null),
-            6,
-            null,
-            true, true, true, true, true, true, 0
+            "post", 6, true, true, true, true, true, true, 0
         )
         val post2 = Post(0,52,43,5,125866500, "It's may first post!", 1,0,
             Comments(1, true, 2, true, true),
@@ -53,13 +41,7 @@ class WallServiceTest {
             Likes(4, true, true, true),
             Reposts(4, true),
             Views(65),
-            "post",
-            null,
-            null,
-            Geo("city", "145.618.514", null),
-            6,
-            null,
-            true, true, true, true, true, true, 0
+            "post", 6, true, true, true, true, true, true, 0
         )
         val post3 = Post(0,52,15,5,125866900, "Hello!", 1,0,
             Comments(1, true, 2, true, true),
@@ -67,13 +49,7 @@ class WallServiceTest {
             Likes(4, true, true, true),
             Reposts(4, true),
             Views(65),
-            "post",
-            null,
-            null,
-            Geo("city", "145.618.514", null),
-            6,
-            null,
-            true, true, true, true, true, true, 0
+            "post", 6, true, true, true, true, true, true, 0
         )
         val post4 = Post(3,52,15,5,125866900, "Hello!", 1,0,
             Comments(1, true, 2, true, true),
@@ -81,13 +57,7 @@ class WallServiceTest {
             Likes(4, true, true, true),
             Reposts(4, true),
             Views(65),
-            "post",
-            null,
-            null,
-            Geo("city", "145.618.514", null),
-            6,
-            null,
-            true, true, true, true, true, true, 0
+            "post", 6, true, true, true, true, true, true, 0
         )
         val service = WallService()
 
@@ -113,13 +83,7 @@ class WallServiceTest {
             Likes(4, true, true, true),
             Reposts(4, true),
             Views(65),
-            "post",
-            null,
-            null,
-            Geo("city", "145.618.514", null),
-            6,
-            null,
-            true, true, true, true, true, true, 0
+            "post", 6, true, true, true, true, true, true, 0
         )
         val post2 = Post(0,52,43,5,125866500, "It's may first post!", 1,0,
             Comments(1, true, 2, true, true),
@@ -127,13 +91,7 @@ class WallServiceTest {
             Likes(4, true, true, true),
             Reposts(4, true),
             Views(65),
-            "post",
-            null,
-            null,
-            Geo("city", "145.618.514", null),
-            6,
-            null,
-            true, true, true, true, true, true, 0
+            "post", 6, true, true, true, true, true, true, 0
         )
         val post3 = Post(0,52,15,5,125866900, "Hello!", 1,0,
             Comments(1, true, 2, true, true),
@@ -141,13 +99,7 @@ class WallServiceTest {
             Likes(4, true, true, true),
             Reposts(4, true),
             Views(65),
-            "post",
-            null,
-            null,
-            Geo("city", "145.618.514", null),
-            6,
-            null,
-            true, true, true, true, true, true, 0
+            "post", 6, true, true, true, true, true, true, 0
         )
         val post4 = Post(4,52,15,5,125866900, "Hello!", 1,0,
             Comments(1, true, 2, true, true),
@@ -155,13 +107,7 @@ class WallServiceTest {
             Likes(4, true, true, true),
             Reposts(4, true),
             Views(65),
-            "post",
-            null,
-            null,
-            Geo("city", "145.618.514", null),
-            6,
-            null,
-            true, true, true, true, true, true, 0
+            "post", 6, true, true, true, true, true, true, 0
         )
         val service = WallService()
 
